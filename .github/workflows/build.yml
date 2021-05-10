@@ -14,7 +14,7 @@ jobs:
       - name: Autoconf
         run: autoreconf -i -f
       - name: Configure
-        run: ./configure --disable-silent-rules --${{ matrix.glib }} --with-unixodbc=/usr
+        run: ./configure --disable-silent-rules --${{ matrix.glib }} --with-unixodbc=/usr --prefix="`pwd`/installation"
         env:
           CC: ${{ matrix.compiler }}
       - name: Make
@@ -32,12 +32,12 @@ jobs:
       - name: Autoconf
         run: autoreconf -i -f
       - name: Configure
-        run: ./configure --disable-silent-rules --${{ matrix.glib }} --with-unixodbc=/usr/local/opt
+        run: ./configure --disable-silent-rules --${{ matrix.glib }} --with-unixodbc=/usr/local/opt --prefix="`pwd`/installation"
         env:
           CC: ${{ matrix.compiler }}
           YACC: /usr/local/opt/bison/bin/bison
       - name: Make
-        run: make
+        run: make install
   macos-iodbc:
     runs-on: macos-latest
     strategy:
@@ -53,12 +53,12 @@ jobs:
       - name: Autoconf
         run: autoreconf -i -f
       - name: Configure
-        run: ./configure --disable-silent-rules --${{ matrix.glib }} --with-iodbc=/usr/local/opt
+        run: ./configure --disable-silent-rules --${{ matrix.glib }} --with-iodbc=/usr/local/opt --prefix="`pwd`/installation"
         env:
           CC: ${{ matrix.compiler }}
           YACC: /usr/local/opt/bison/bin/bison
       - name: Make
-        run: make
+        run: make install
   windows:
     runs-on: windows-latest
     env:
@@ -68,6 +68,6 @@ jobs:
       - name: Autoconf
         run: C:\msys64\usr\bin\bash -c -l 'cd "$GITHUB_WORKSPACE" && autoreconf -i -f'
       - name: Configure
-        run: C:\msys64\usr\bin\bash -c -l 'cd "$GITHUB_WORKSPACE" && ./configure'
+        run: C:\msys64\usr\bin\bash -c -l 'cd "$GITHUB_WORKSPACE" && ./configure --prefix="`pwd`/installation"'
       - name: Make
-        run: C:\msys64\usr\bin\bash -c -l 'cd "$GITHUB_WORKSPACE" && make'
+        run: C:\msys64\usr\bin\bash -c -l 'cd "$GITHUB_WORKSPACE" && make install'
