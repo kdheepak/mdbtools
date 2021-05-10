@@ -27,6 +27,7 @@ jobs:
       - name: Packaging binary
         shell: bash
         run: |
+          echo `pwd`/installation
           cd `pwd`/installation/
           tar czvf mdbtools-linux.tar.gz *
       - name: Releasing assets
@@ -59,6 +60,7 @@ jobs:
       - name: Packaging binary
         shell: bash
         run: |
+          echo `pwd`/installation
           cd `pwd`/installation/
           tar czvf mdbtools-macos.tar.gz *
       - name: Releasing assets
@@ -93,6 +95,7 @@ jobs:
       - name: Packaging binary
         shell: bash
         run: |
+          echo `pwd`/installation
           cd `pwd`/installation/
           tar czvf mdbtools-macos-iodbc.tar.gz *
       - name: Releasing assets
@@ -118,6 +121,7 @@ jobs:
       - name: Packaging binary
         shell: bash
         run: |
+          echo `pwd`/installation
           cd `pwd`/installation/
           tar czvf mdbtools-windows.tar.gz *
       - name: Releasing assets
