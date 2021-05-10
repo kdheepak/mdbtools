@@ -34,7 +34,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            mdbtools/installation/mdbtools-linux.tar.gz
+            mdbtools/mdbtools/installation/mdbtools-linux.tar.gz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   macos:
@@ -66,7 +66,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            mdbtools/installation/mdbtools-macos.tar.gz
+            mdbtools/mdbtools/installation/mdbtools-macos.tar.gz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   macos-iodbc:
@@ -100,7 +100,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            mdbtools/installation/mdbtools-macos-iodbc.tar.gz
+            mdbtools/mdbtools/installation/mdbtools-macos-iodbc.tar.gz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   windows:
@@ -125,6 +125,6 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            mdbtools/installation/mdbtools-windows.tar.gz
+            mdbtools/mdbtools/installation/mdbtools-windows.tar.gz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
