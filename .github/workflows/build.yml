@@ -4,7 +4,6 @@ jobs:
   linux:
     runs-on: ubuntu-latest
     strategy:
-      fail-fast: false
       matrix:
         compiler: [ clang, gcc, gcc-9, gcc-10 ]
         glib: [ enable-glib, disable-glib ]
@@ -23,7 +22,6 @@ jobs:
   macos:
     runs-on: macos-latest
     strategy:
-      fail-fast: false
       matrix:
         compiler: [ clang, gcc ]
         glib: [ enable-glib, disable-glib ]
@@ -43,7 +41,6 @@ jobs:
   macos-iodbc:
     runs-on: macos-latest
     strategy:
-      fail-fast: false
       matrix:
         compiler: [ clang, gcc ]
         glib: [ enable-glib, disable-glib ]
