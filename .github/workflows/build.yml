@@ -28,13 +28,13 @@ jobs:
         shell: bash
         run: |
           cd `pwd`/installation/
-          tar czvf mdbtools-linux.tar.gz *
+          tar czvf mdbtools-linux-${{ matrix.compiler }}-${{ matrix.glib }}.tar.gz *
       - name: Releasing assets
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            installation/mdbtools-linux.tar.gz
+            installation/mdbtools-linux-${{ matrix.compiler }}-${{ matrix.glib }}.tar.gz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   macos:
@@ -60,13 +60,13 @@ jobs:
         shell: bash
         run: |
           cd `pwd`/installation/
-          tar czvf mdbtools-macos.tar.gz *
+          tar czvf mdbtools-macos-${{ matrix.compiler }}-${{ matrix.glib }}.tar.gz *
       - name: Releasing assets
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            installation/mdbtools-macos.tar.gz
+            installation/mdbtools-macos-${{ matrix.compiler }}-${{ matrix.glib }}.tar.gz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   macos-iodbc:
@@ -94,13 +94,13 @@ jobs:
         shell: bash
         run: |
           cd `pwd`/installation/
-          tar czvf mdbtools-macos-iodbc.tar.gz *
+          tar czvf mdbtools-macos-iodbc-${{ matrix.compiler }}-${{ matrix.glib }}.tar.gz *
       - name: Releasing assets
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            installation/mdbtools-macos-iodbc.tar.gz
+            installation/mdbtools-macos-iodbc-${{ matrix.compiler }}-${{ matrix.glib }}.tar.gz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   windows:
@@ -119,12 +119,12 @@ jobs:
         shell: bash
         run: |
           cd `pwd`/installation/
-          tar czvf mdbtools-windows.tar.gz *
+          tar czvf mdbtools-windows-${{ matrix.compiler }}-${{ matrix.glib }}.tar.gz *
       - name: Releasing assets
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            installation/mdbtools-windows.tar.gz
+            installation/mdbtools-windows-${{ matrix.compiler }}-${{ matrix.glib }}.tar.gz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
